@@ -3,7 +3,7 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="index.php">
-            <img  src="../assets/img/logo2.png" width="80%" alt="logo">
+            <img src="../assets/img/logo2.png" width="80%" alt="logo">
         </a>
 
         <ul class="sidebar-nav">
@@ -22,8 +22,8 @@
                 </a>
             </li>
             <li class="sidebar-item">
-                <a class="sidebar-link" href="incidentes.php">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Incidentes</span>
+                <a class="sidebar-link" href="doctores.php">
+                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Doctores</span>
                 </a>
             </li>
 
