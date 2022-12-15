@@ -11,14 +11,14 @@
                 Informacion general
             </li>
 
-            <li class="sidebar-item">
+            <!--   <li class="sidebar-item">
                 <a class="sidebar-link" href="bitacora.php">
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Bitácora digital</span>
                 </a>
-            </li>
+            </li> -->
             <li class="sidebar-item">
-                <a class="sidebar-link" href="reportes.php">
-                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Reportes general</span>
+                <a class="sidebar-link" href="ortodoncia.php">
+                    <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Ortodoncia</span>
                 </a>
             </li>
             <li class="sidebar-item">
@@ -33,6 +33,12 @@
             <li class="sidebar-item">
                 <a class="sidebar-link" href="noticias.php">
                     <i class="align-middle" data-feather="tablet"></i> <span class="align-middle">Noticias</span>
+                </a>
+            </li>
+
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="calendario.php">
+                    <i class="align-middle" data-feather="tablet"></i> <span class="align-middle">Calendario</span>
                 </a>
             </li>
             <!-- <li class="sidebar-item">
