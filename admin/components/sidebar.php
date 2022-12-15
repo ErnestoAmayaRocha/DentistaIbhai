@@ -3,12 +3,12 @@
 <nav id="sidebar" class="sidebar js-sidebar">
     <div class="sidebar-content js-simplebar">
         <a class="sidebar-brand" href="index.php">
-            <img class="w-100" src="../assets/img/logo_unidos.png" alt="logo">
+            <img  src="../assets/img/logo2.png" width="80%" alt="logo">
         </a>
 
         <ul class="sidebar-nav">
             <li class="sidebar-header">
-                Base de datos general
+                Informacion general
             </li>
 
             <li class="sidebar-item">
