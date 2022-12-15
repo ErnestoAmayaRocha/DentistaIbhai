@@ -12,7 +12,7 @@ isset($_SESSION['id']) && header('Location: /admin');
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Direccion Municipal de Seguridad Pública</title>
+    <title>IBHAI</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -46,8 +46,9 @@ isset($_SESSION['id']) && header('Location: /admin');
         <div class="container p-5">
             <div class="row d-flex justify-content-center ">
                 <div class="col-md-5 card shadow shadow-lg mt-5" data-aos="zoom-out" data-aos-delay="100">
-                    <div class="card-header text-center pt-3">
-                        <h2>Iniciar Sesión</h2>
+                    <div class=" text-center pt-3">
+                        <h3>Iniciar Sesión</h3>
+                        <img src="assets/img/logo2.png" alt="" width="40%">
                     </div>
                     <div class="card-body py-3 px-3">
                         <form method="POST" action="./db/login.php">
@@ -71,10 +72,10 @@ isset($_SESSION['id']) && header('Location: /admin');
 
     <footer id="footer" class="footer-top">
         <div class="container py-4 border-top border-2 border-primary">
-            <div class="text-center">
-                &copy; Copyright <strong><span>Dirección Municipal de Seguridad Pública</span></strong>. Derechos reservados
-                <?php echo date("Y") ?>
-            </div>
+        <div class="text-center">
+            &copy; Copyright <strong><span>IBHAI</span></strong>. Derechos reservados
+            <?php echo date("Y") ?>
+        </div>
         </div>
     </footer>
 

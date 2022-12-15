@@ -408,14 +408,14 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Ubicación:</h4>
-                <p>A108 Adam Street, New York, NY 535022</p>
+                <p>Fracc benito Juarez Calle agustin Melgar 306</p>
               </div>
 
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Teléfono:</h4>
-                <p>+1 5589 55488 55s</p>
+                <p>+52 6181413614</p>
               </div>
 
             </div>
@@ -449,7 +449,7 @@
                 <div class="error-message"></div>
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+              <div class="text-center"><button type="submit">Enviar mensaje</button></div>
             <br><br>
             </form>
           </div>

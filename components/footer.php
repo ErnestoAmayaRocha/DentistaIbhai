@@ -15,7 +15,7 @@
                 </div>
                 <div class="col-lg-2"></div>
                 <div class="col-lg-4 col-md-6 footer-links">
-                    <h4 class="border-bottom border-2 border-primary mb-4 text-center">Números de Emergencia</h4>
+                    <h4 class="border-bottom border-2 border-primary mb-4 text-center">Números</h4>
                     <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
                     <div class="mt-3">
                         <ul>
