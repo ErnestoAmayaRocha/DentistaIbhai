@@ -5,7 +5,7 @@
 
     <div class="navbar-collapse collapse">
         <ul class="navbar-nav navbar-align">
-            <li class="nav-item dropdown">
+           <!--  <li class="nav-item dropdown">
                 <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
                     <div class="position-relative">
                         <i class="align-middle" data-feather="bell"></i>
@@ -69,14 +69,14 @@
                         <a href="#" class="text-muted">Show all notifications</a>
                     </div>
                 </div>
-            </li>
+            </li> -->
             <li class="nav-item dropdown">
                 <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
                     <div class="position-relative">
                         <i class="align-middle" data-feather="message-square"></i>
                     </div>
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
+                <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
                     <div class="dropdown-menu-header">
                         <div class="position-relative">
                             4 New Messages
@@ -135,7 +135,7 @@
                     <div class="dropdown-menu-footer">
                         <a href="#" class="text-muted">Show all messages</a>
                     </div>
-                </div>
+                </div> -->
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
@@ -146,8 +146,8 @@
                     <?php echo $_SESSION['username'] ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
-                    <div class="dropdown-divider"></div>
+                   <!--  <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a> -->
+                  
                     <a class="dropdown-item" href="../db/logout.php">Cerrar Sesión</a>
                 </div>
             </li>
