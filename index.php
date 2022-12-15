@@ -2,42 +2,42 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>IBHAI</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
+  <title>IBHAI</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="assets/img/logo_municipio_blanco.png" rel="icon">
-    <link href="assets/img/logo_municipio_blanco.png" rel="apple-touch-icon">
+  <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
 
 </head>
 
 <body>
 
-   
 
-    <!-- ======= Navbar ======= -->
-    <?php include './components/navbar.php' ?>
 
-    <section id="hero" class="d-flex align-items-center">
+  <!-- ======= Navbar ======= -->
+  <?php include './components/navbar.php' ?>
+
+  <section id="hero" class="d-flex align-items-center">
     <div class="container">
       <h1>IBHAI</h1>
       <h2>Somos uno de los mejores consultorios del estado de <br> Durango, que ofrece un servicio de calidad.</h2>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
-                    <i class="bx bxl-squarespace"></i>
+                    <i class="bx bxl-airbnb"></i>
                     <h4>Ortodoncia</h4>
                     <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
                   </div>
@@ -97,16 +97,15 @@
 
 
 
-     <!-- ======= About Section ======= -->
-     <section id="about" class="about">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
       <div class="container-fluid">
 
         <div class="row">
           <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
           </div>
 
-          <div
-            class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
+          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
             <h3>¿Quiénes Somos?</h3>
             <p>Somos un equipo de profesionales cuidando su salud bucal. Nos ubicamos en la ciudad de Durango, Dgo.</p>
 
@@ -118,7 +117,7 @@
             </div>
 
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-gift"></i></div>
+              <div class="icon"><i class="bx bx-archive"></i></div>
               <h4 class="title"><a href="">Experiencia</a></h4>
               <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
                 praesentium voluptatum deleniti atque</p>
@@ -130,8 +129,8 @@
     </section><!-- End About Section -->
 
 
-      <!-- ======= Services Section ======= -->
-      <section id="services" class="services">
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
       <div class="container">
 
         <div class="section-title">
@@ -142,7 +141,7 @@
         <div class="row">
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-heartbeat"></i></div>
+              <div class="icon"><i class="bx bx-area"></i></div>
               <h4><a href="">Ortodoncia</a></h4>
               <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
             </div>
@@ -150,7 +149,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-pills"></i></div>
+              <div class="icon"><i class="bx bx-adjust"></i></div>
               <h4><a href="">Endodoncia</a></h4>
               <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
             </div>
@@ -158,7 +157,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-hospital-user"></i></div>
+              <div class="icon"><i class="bx bx-user"></i></div>
               <h4><a href="">Odontología</a></h4>
               <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
             </div>
@@ -166,7 +165,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-dna"></i></div>
+              <div class="icon"><i class="bx bx-donate-heart"></i></div>
               <h4><a href="">Otros</a></h4>
               <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
             </div>
@@ -174,7 +173,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-wheelchair"></i></div>
+              <div class="icon"><i class="bx bx-money"></i></div>
               <h4><a href="">Valoraciones</a></h4>
               <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
             </div>
@@ -182,7 +181,7 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
             <div class="icon-box">
-              <div class="icon"><i class="fas fa-notes-medical"></i></div>
+              <div class="icon"><i class="bx bx-test-tube"></i></div>
               <h4><a href="">Estudios</a></h4>
               <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
             </div>
@@ -195,8 +194,8 @@
 
 
 
- <!-- ======= Doctors Section ======= -->
- <section id="doctors" class="doctors">
+    <!-- ======= Doctors Section ======= -->
+    <section id="doctors" class="doctors">
       <div class="container">
 
         <div class="section-title">
@@ -247,8 +246,8 @@
     </section><!-- End Doctors Section -->
 
 
-     <!-- ======= Gallery Section ======= -->
-     <section id="galeria" class="gallery">
+    <!-- ======= Gallery Section ======= -->
+    <section id="galeria" class="gallery">
       <div class="container">
 
         <div class="section-title">
@@ -330,7 +329,7 @@
 
       </div>
     </section><!-- End Gallery Section -->
-    
+
 
 
 
@@ -340,51 +339,51 @@
 
 
     <main id="main">
-        <!-- ======= Noticias ======= -->
+      <!-- ======= Noticias ======= -->
 
-        <section id="team" class="team section-bg">
-            <div class="container" data-aos="fade-up">
-                <div class="section-title">
-                    <h3>Noticias</h3>
-                    <hr>
+      <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+          <div class="section-title">
+            <h3>Noticias</h3>
+            <hr>
+          </div>
+
+          <div class="row d-flex justify-content-center">
+
+            <?php
+            include('./db/config.php');
+
+            $noticias = $db->query("SELECT * FROM noticias ORDER BY fecha DESC LIMIT 4");
+
+            $countNoticias = $noticias->rowCount();
+            if ($countNoticias > 0) {
+
+              foreach ($noticias as $noticia) { ?>
+                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                  <div class="card" style="width: 18rem;">
+                    <img src="./admin/<?php echo $noticia['imagen_path'] ?>" class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title"><?php echo $noticia['titulo'] ?></h5>
+                      <span class="mb-3 fw-light"><?php echo $noticia['subtitulo'] ?></span>
+                      <p class="card-text"><?php echo $noticia['descripcion'] ?></p>
+                      <br>
+                      <a href="#" class="btn btn-primary mt-3">Ver más</a>
+                    </div>
+                  </div>
                 </div>
+              <?php
+              }
+            } else { ?>
+              <div class="text-center py-5">
+                No hay noticias por mostrar
+              </div>
+            <?php
+            }
+            ?>
 
-                <div class="row d-flex justify-content-center">
-
-                    <?php
-                    include('./db/config.php');
-
-                    $noticias = $db->query("SELECT * FROM noticias ORDER BY fecha DESC LIMIT 4");
-
-                    $countNoticias = $noticias->rowCount();
-                    if ($countNoticias > 0) {
-
-                        foreach ($noticias as $noticia) { ?>
-                            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-                                <div class="card" style="width: 18rem;">
-                                    <img src="./admin/<?php echo $noticia['imagen_path'] ?>" class="card-img-top">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><?php echo $noticia['titulo'] ?></h5>
-                                        <span class="mb-3 fw-light"><?php echo $noticia['subtitulo'] ?></span>
-                                        <p class="card-text"><?php echo $noticia['descripcion'] ?></p>
-                                        <br>
-                                        <a href="#" class="btn btn-primary mt-3">Ver más</a>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php
-                        }
-                    } else { ?>
-                        <div class="text-center py-5">
-                            No hay noticias por mostrar
-                        </div>
-                    <?php
-                    }
-                    ?>
-
-                </div>
-            </div>
-        </section>
+          </div>
+        </div>
+      </section>
 
     </main>
 
@@ -450,16 +449,14 @@
                 <div class="sent-message">Your message has been sent. Thank you!</div>
               </div>
               <div class="text-center"><button type="submit">Enviar mensaje</button></div>
-            <br><br>
+              <br><br>
             </form>
           </div>
 
           <div>
-           
 
-              <iframe style="border:0; width: 100%; height: 350px;"
-               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7290.380653537034!2d-104.61430449214015!3d23.989055302632906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bb833980d018d%3A0x735210d1bc20e6ad!2sUniversidad%20Tecnol%C3%B3gica%20de%20Durango%20BIS!5e0!3m2!1ses!2smx!4v1671075113193!5m2!1ses!2smx" 
-                frameborder="0" allowfullscreen></iframe>
+
+            <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7290.380653537034!2d-104.61430449214015!3d23.989055302632906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x869bb833980d018d%3A0x735210d1bc20e6ad!2sUniversidad%20Tecnol%C3%B3gica%20de%20Durango%20BIS!5e0!3m2!1ses!2smx!4v1671075113193!5m2!1ses!2smx" frameborder="0" allowfullscreen></iframe>
           </div>
 
         </div>

@@ -16,9 +16,9 @@ isset($_SESSION['id']) && header('Location: /admin');
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="assets/img/logo_municipio_blanco.png" rel="icon">
-    <link href="assets/img/logo_municipio_blanco.png" rel="apple-touch-icon">
+   <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -39,7 +39,7 @@ isset($_SESSION['id']) && header('Location: /admin');
 <body>
 
     <!-- ======= Navbar ======= -->
-    <?php include './components/navbar.php' ?>
+    <?php include './components/navbarlog.php' ?>
 
     <main id="main" class="my-5">
 
