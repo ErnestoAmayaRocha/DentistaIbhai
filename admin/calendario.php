@@ -39,7 +39,17 @@ include('./db/session-validate.php');
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth'
+    initialView: 'dayGridMonth',
+    locale:"es",
+    headerToolBar:{
+       left:'prev,next,today',
+       center:'title',
+       right:'dayGridMonth,timeGridWeek, timeGridDay',
+    },
+    dateClick:function(info){
+        document.getElementById()
+    }
+
   });
   calendar.render();
 });
