@@ -3,8 +3,8 @@
 include('./db/session-validate.php');
 include('../db/config.php');
 
-$reportes = $db->query("SELECT * FROM doctores");
-$countReportes = $reportes->rowCount();
+$doctoes = $db->query("SELECT * FROM doctores");
+$countDoctores = $doctoes->rowCount();
 
 ?>
 
@@ -57,40 +57,37 @@ $countReportes = $reportes->rowCount();
                                 </div>
 
                                 <?php
-                                if ($countReportes > 0) { ?>
+                                if ($countDoctores > 0) { ?>
                                     <div class="table-responsive">
                                         <table class="table table-hover my-0 text-center">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Dia</th>
-                                                    <th>Mes</th>
-                                                    <th>Año</th>
-                                                    <th>Fraccionamiento</th>
-                                                    <th>Visitas</th>
-                                                    <th>Patrulla</th>
-                                                    <th>Responsable</th>
-                                                    <th>Incidente</th>
-                                                    <th>Archivo</th>
+                                                    <th>Nombre</th>
+                                                    <th>Edad</th>
+                                                    <th>Dirección</th>
+                                                    <th>Teléfono</th>
+                                                    <th>Correo</th>
+                                                    <th>Especialidad</th>
+                                                    <th>Cédula Profesional</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
                                                 $i = 1;
-                                                foreach ($reportes as $fracc) { ?>
+                                                foreach ($doctoes as $doc) { ?>
                                                     <tr>
                                                         <td> <?php echo $i++ ?> </td>
-                                                        <td> <?php echo strftime("%d", strtotime($fracc['created_at'])) ?> </td>
-                                                        <td> <?php echo ucfirst(strftime("%B", strtotime($fracc['created_at']))) ?> </td>
-                                                        <td> <?php echo strftime("%Y", strtotime($fracc['created_at'])) ?> </td>
-                                                        <td> <?php echo $fracc['fraccionamiento'] ?> </td>
-                                                        <td> <?php echo 3 ?> </td>
-                                                        <td> <?php echo $fracc['clave_guardia'] ?> </td>
-                                                        <td> <?php echo $fracc['guardia'] ?> </td>
-                                                        <td> <?php echo $fracc['rondin'] != 1 ? 'Sin Incidentes' : "<a href='info-reporte.php?id=" . $fracc['id_reporte'] . "' class='btn btn-warning'>Ver Incidente</a>" ?>
-                                                        </td>
+                                                        <td> <?php echo $doc['nombre'] ?> </td>
+                                                        <td> <?php echo $doc['edad'] ?> </td>
+                                                        <td> <?php echo $doc['direccion'] ?> </td>
+                                                        <td> <?php echo $doc['telefono'] ?> </td>
+                                                        <td> <?php echo $doc['correo'] ?> </td>
+                                                        <td> <?php echo $doc['especialidad'] ?> </td>
+                                                        <td> <?php echo $doc['cedula_profesional'] ?> </td>
                                                         <td>
-                                                            <a class="btn btn-primary" href="./pdf/reportePDF.php" target="_blank">PDF</a>
+                                                            <button class="btn btn-sm btn-danger">Eliminar</button>
                                                         </td>
                                                     </tr>
                                                 <?php
@@ -101,7 +98,7 @@ $countReportes = $reportes->rowCount();
                                     </div>
                                 <?php
                                 } else { ?>
-                                    <div class="alert alert-info text-center">No hay datos por mostrar</div>
+                                    <div class="alert alert-info text-center pt-5 pb-4">No hay datos por mostrar</div>
                                 <?php
                                 }
                                 ?>
