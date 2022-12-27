@@ -1,13 +1,9 @@
 <?php
-
 include './db/session-validate.php';
 include '../db/config.php';
-
 $reportes = $db->query("SELECT * FROM reportes ORDER BY created_at");
 $countReportes = $reportes->rowCount();
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,14 +15,10 @@ $countReportes = $reportes->rowCount();
    <meta name="author" content="AdminKit">
    <meta name="keywords"
       content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link rel="shortcut icon" href="../assets/img/logo_DMSP.png" />
-
    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
    <title>Historia clínica | IBHAI</title>
-
    <link href="./assets/css/app.css" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
    <style>
@@ -44,22 +36,14 @@ $countReportes = $reportes->rowCount();
 <body>
    <div class="wrapper">
       <?php include './components/sidebar.php'?>
-
       <div class="main">
-
          <?php include './components/navbar.php'?>
-
          <main class="content">
             <div class="container-fluid p-0">
-
                <h1 class="h1 mb-3 fw-bolder">Historia clinica general</h1>
-
-               <div class="row">
-
+               <form action='./db/historial-clinico-agregar.php' method="POST" class="row">
                   <div class="card p-3">
-
                      <div class="d-flex flex-column">
-
                         <div class="col-sm-12 row mb-3">
                            <div class="col-sm-6">
                               <label for="lugar">Lugar:</label>
@@ -181,7 +165,6 @@ $countReportes = $reportes->rowCount();
                               <input type="text" name="enfermedad_padre" id="enfermedad_padre" class="form-control">
                            </div>
                         </div>
-
                         <div class="col-sm-12 row mb-3">
                            <div class="col-sm-4">
                               <label for="madre_vida">¿Madre con vida?</label>
@@ -345,7 +328,10 @@ $countReportes = $reportes->rowCount();
                         <div class="col-sm-12 row mb-3">
                            <div class="col-sm-6">
                               <label for="toma_aspirina">¿Toma seguido aspirina y/o anticoagulante?</label>
-                              <input type="text" name="toma_aspirina" id="toma_aspirina" class="form-control">
+                              <select name="toma_aspirina" id="toma_aspirina" class="form-control">
+                                 <option value="1">Si</option>
+                                 <option value="0">No</option>
+                              </select>
                            </div>
                            <div class="col-sm-6">
                               <label for="frecuencia_aspirina">¿Con qué frecuencia?</label>
@@ -365,7 +351,10 @@ $countReportes = $reportes->rowCount();
                         <div class="col-sm-12 row mb-3">
                            <div class="col-sm-6">
                               <label for="chagas">¿Chagas?</label>
-                              <input type="text" name="chagas" id="chagas" class="form-control">
+                              <select name="chagas" id="chagas" class="form-control">
+                                 <option value="1">Si</option>
+                                 <option value="0">No</option>
+                              </select>
                            </div>
                            <div class="col-sm-6">
                               <label for="tratamiento_chagas">¿Está en tratamiento?</label>
@@ -566,24 +555,13 @@ $countReportes = $reportes->rowCount();
                               <input type="submit" value="Guardar" class="btn btn-success col-sm-12">
                            </div>
                         </div>
-
-
-
-
-
-
-
                      </div>
-
                   </div>
-
-               </div>
+               </form>
             </div>
          </main>
-
       </div>
    </div>
-
    <script src="./assets/js/app.js"></script>
 </body>
 

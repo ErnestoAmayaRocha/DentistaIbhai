@@ -13,10 +13,10 @@ if ($_POST) {
     echo $clave_guardia = isset($_POST['clave_guardia']) ? $_POST['clave_guardia'] : "";
 
     if ($fracc == '' || $fk_fracc  == '' || $guardia == '' || $horario == '' || $incidentes == '' || $clave_guardia == '') { ?>
-        <script>
-            // window.location.href = "../registro.php?status=incompleto";
-        </script>
-    <?php }
+<script>
+// window.location.href = "../registro.php?status=incompleto";
+</script>
+<?php }
 
     try {
         $reporte = $db->prepare("INSERT INTO reportes (fraccionamiento, guardia, clave_guardia, horario, incidente, rondin, fk_fraccionamiento) VALUES (:fracc, :guardia, :clave_guardia, :horario, :incidente, :rondin, :fk_fraccionamiento) ");
@@ -30,21 +30,21 @@ if ($_POST) {
         $reporte->execute();
 
     ?>
-        <script>
-            window.location.href = "../index.php?status=success";
-        </script>
-    <?php
+<script>
+window.location.href = "../index.php?status=success";
+</script>
+<?php
 
     } catch (\Throwable $th) {
     ?>
-        <script>
-            window.location.href = "../registro.php?status=error"
-        </script>
-    <?php
+<script>
+window.location.href = "../registro.php?status=error"
+</script>
+<?php
     }
 } else { ?>
-    <script>
-        window.location.href = "../index.php"
-    </script>
+<script>
+window.location.href = "../index.php"
+</script>
 <?php
 }
