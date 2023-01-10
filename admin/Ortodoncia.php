@@ -17,6 +17,10 @@ $albums = $db->prepare("SELECT * FROM album");
 $albums->execute();
 $albums = $albums->fetchAll(PDO::FETCH_ASSOC);
 
+$evolucion = $db->prepare("SELECT * FROM evolucion");
+$evolucion->execute();
+$evolucion = $evolucion->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 
 <!DOCTYPE html>
@@ -147,22 +151,23 @@ $albums = $albums->fetchAll(PDO::FETCH_ASSOC);
                               </div>
                            </div>
                            <div class="col-sm-12 mt-5 py-3 border-2 border-top rounded rounded-1">
-                              <form action="">
+                              <div>
                                  <div class="col-sm-12 mb-3 row d-flex justify-content-end">
                                     <label class='fw-bolder mb-2 col-md-9 pl-3'>Evolución</label>
                                     <div class="col-md-2 text-right">
-                                       <button class="btn btn-sm btn-primary" type="submit">Agregar</button>
+                                       <button class="btn btn-sm btn-primary" type="submit" onclick="sendData()">Agregar</button>
                                     </div>
                                  </div>
                                  <div class="col-md-12 row d-flex justify-content-center px-4 mb-3">
                                     <div class="input-group">
                                        <span class="input-group-text">Evolución</span>
-                                       <input type="date" class="form-control" name="fecha" placeholder="Fecha">
-                                       <input type="text" class="form-control" name="evolucion" placeholder="Evolución">
+                                       <input type="date" class="form-control" id="fecha_evolucion" name="fecha_evolucion" placeholder="Fecha" required>
+                                       <input type="text" class="form-control" id="evolucion" name="evolucion" placeholder="Evolución" required>
                                     </div>
+                                    <input type="hidden" class="form-control" id="fk_paciente" name="fk_paciente" value="1" required>
                                  </div>
-                              </form>
-                              <table class="table table-light table-striped">
+                              </div>
+                              <table class="table table-light table-striped text-center">
                                  <thead>
                                     <tr>
                                        <th>Fecha</th>
@@ -170,14 +175,15 @@ $albums = $albums->fetchAll(PDO::FETCH_ASSOC);
                                     </tr>
                                  </thead>
                                  <tbody>
-                                    <tr>
-                                       <td>John</td>
-                                       <td>Doe</td>
-                                    </tr>
-                                    <tr>
-                                       <td>John</td>
-                                       <td>Doe</td>
-                                    </tr>
+                                    <?php
+                                    foreach ($evolucion as $row) { ?>
+                                       <tr>
+                                          <td><?php echo $row['fecha']; ?></td>
+                                          <td><?php echo $row['evolucion']; ?></td>
+                                       </tr>
+                                    <?php
+                                    }
+                                    ?>
                                  </tbody>
                               </table>
 
@@ -258,9 +264,31 @@ $albums = $albums->fetchAll(PDO::FETCH_ASSOC);
       </div>
    </div>
 
+   <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
    <script src="./assets/js/app.js"></script>
-
    <?php include '../components/swal.php' ?>
+
+   <script>
+      const sendData = () => {
+
+         const fecha = document.getElementById('fecha_evolucion').value;
+         const evolucion = document.getElementById('evolucion').value;
+         const fk = document.getElementById('fk_paciente').value;
+
+         $.ajax({
+            type: "POST",
+            url: "db/evolucion-agregar.php",
+            data: {
+               fecha,
+               evolucion,
+               fk
+            },
+            success: function(datos) {
+               alert(datos)
+            },
+         })
+      }
+   </script>
 
 </body>
 
