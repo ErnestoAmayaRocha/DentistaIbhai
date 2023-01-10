@@ -15,14 +15,14 @@ include('./db/session-validate.php');
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link rel="shortcut icon" href="../assets/img/logo_DMSP.png" />
 
-<!-- calendar -->
+    <!-- calendar -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
-<!--  -->
+    <!--  -->
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
     <title>Administración | IBHAI</title>
@@ -35,82 +35,72 @@ include('./db/session-validate.php');
 <body>
 
 
-<script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var calendarEl = document.getElementById('calendar');
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                initialView: 'dayGridMonth',
+                locale: "es",
 
-document.addEventListener('DOMContentLoaded', function() {
-  var calendarEl = document.getElementById('calendar');
-  var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    locale:"es",
-   
-    customButtons: {
-    myCustomButton: {
-      text: 'Agregar Cita',
-      click: function() {
-        alert('clicked the custom button!');
-      }
-    },
-   
+                customButtons: {
+                    myCustomButton: {
+                        text: 'Agregar Cita',
+                        click: function() {
+                            alert('clicked the custom button!');
+                        }
+                    },
 
-  },
-  headerToolbar: {
-    left: 'prev,next today myCustomButton',
-    center: 'title',
-    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-  },
 
-  dateClick: function(info) {
+                },
+                headerToolbar: {
+                    left: 'prev,next today myCustomButton',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                },
+                events: 'http://localhost/dentistagit/admin/eventos.php',
 
-   alert("click" + info.date);
-   
-    
-  },
-  events: [
-    {
-      title: 'Evento 1',
-      descripcion:"brackets",
-      paciente:"neto",
-      start: '2023-01-01',
-      color:"black"
-    },
-    {
-      title: 'Event2',
-      descripcion:"limpiezza",
-      paciente:"ana",
-      start: '2023-01-01'
-    }
-    
-    
-  ],
+                dateClick: function(info) {
 
-  eventClick: function(info) {
- 
-    
 
-    // change the border color just for fun
-    info.el.style.borderColor = 'red';
-    $('#tituloEvento').html(info.event.title); 
-    $('#descripcionEvento').html(info.event.extendedProps.descripcion); 
-    $('#exampleModal').modal('show'); 
-  },
+                    /* alert('Clicked on: ' + info.dateStr);
+                    alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
+                    alert('Current view: ' + info.view.type);
+                   
+                    info.dayEl.style.backgroundColor = 'red'; */
+                    $('#txtFecha').val(info.dateStr);
+                    $('#txtTitle').val(info.dateStr);
+                    $('#ModalEventos').modal('show');
+                },
 
- 
 
- 
-  
-
-    
-
- 
- 
+                eventClick: function(info) {
 
 
 
-  });
-  calendar.render();
-});
+                    // change the border color just for fun
+                    info.el.style.borderColor = 'red';
+                    $('#tituloEvento').html(info.event.title);
+                    $('#descripcionEvento').html(info.event.extendedProps.descripcion);
+                    $('#exampleModal').modal('show');
 
-</script>
+                },
+
+
+
+
+
+
+
+
+
+
+
+
+
+            });
+            calendar.render();
+        });
+    </script>
     <div class="wrapper">
         <?php include './components/sidebar.php' ?>
 
@@ -131,13 +121,13 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <div class="col-md-6">
                                         <h5 class="card-title mb-0">Citas</h5>
                                     </div>
-                                   <!-- Button trigger modal -->
+                                    <!-- Button trigger modal -->
 
 
 
                                     <div id='calendar'></div>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -153,30 +143,87 @@ document.addEventListener('DOMContentLoaded', function() {
     <?php include('../components/swal.php') ?>
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="tituloEvento"></h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div id="descripcionEvento"> </div>
-      </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-success">Guardar cita</button>
-      <button type="button" class="btn btn-warning">Modificar cita</button>
-      <button type="button" class="btn btn-danger">Borrar cita</button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloEvento"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="descripcionEvento"> </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Guardar cita</button>
+                    <button type="button" class="btn btn-warning">Modificar cita</button>
+                    <button type="button" class="btn btn-danger">Borrar cita</button>
 
 
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 
-        
-      </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+
+
+
+    <!-- Modal add edit delete -->
+    <div class="modal fade" id="ModalEventos" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tituloEvento"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="descripcionEvento">
+
+                    </div>
+                    <div class="container">
+                        <form>
+                            <div class="row g-2">
+                                <div class="col-12 text-center">
+                                    Fecha: <input type="text" id="txtFecha" name="txtFecha" />
+                                </div>
+                                <div class="col-12 text-center">
+                                    Titulo: <input type="text" id="txtTitulo" name="txtTitulo" />
+                                </div>
+                                <div class="col-12 text-center">
+                                    Hora: <input type="text" id="txtHora" name="txtHora" value="10:30" />
+                                </div>
+                                <div class="col-12 text-center">
+
+                                    Descripcion: <textarea id="txtDescripcion" rows="3"> </textarea>
+                                </div>
+                                <div class="col-12 text-center">
+
+                                    Color: <input type="color" id="txtColor" name="txtColor" value="#ff0000" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success">Guardar cita</button>
+                    <button type="button" class="btn btn-warning">Modificar cita</button>
+                    <button type="button" class="btn btn-danger">Borrar cita</button>
+
+
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 
