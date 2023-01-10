@@ -20,13 +20,14 @@ include('./db/session-validate.php');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales-all.js"></script>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 
 <!--  -->
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
     <title>Administración | IBHAI</title>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <link href="./assets/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
@@ -41,14 +42,69 @@ document.addEventListener('DOMContentLoaded', function() {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
     locale:"es",
-    headerToolBar:{
-       left:'prev,next,today',
-       center:'title',
-       right:'dayGridMonth,timeGridWeek, timeGridDay',
+   
+    customButtons: {
+    myCustomButton: {
+      text: 'Agregar Cita',
+      click: function() {
+        alert('clicked the custom button!');
+      }
     },
-    dateClick:function(info){
-        document.getElementById()
+   
+
+  },
+  headerToolbar: {
+    left: 'prev,next today myCustomButton',
+    center: 'title',
+    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+  },
+
+  dateClick: function(info) {
+
+   alert("click" + info.date);
+   
+    
+  },
+  events: [
+    {
+      title: 'Evento 1',
+      descripcion:"brackets",
+      paciente:"neto",
+      start: '2023-01-01',
+      color:"black"
+    },
+    {
+      title: 'Event2',
+      descripcion:"limpiezza",
+      paciente:"ana",
+      start: '2023-01-01'
     }
+    
+    
+  ],
+
+  eventClick: function(info) {
+ 
+    
+
+    // change the border color just for fun
+    info.el.style.borderColor = 'red';
+    $('#tituloEvento').html(info.event.title); 
+    $('#descripcionEvento').html(info.event.extendedProps.descripcion); 
+    $('#exampleModal').modal('show'); 
+  },
+
+ 
+
+ 
+  
+
+    
+
+ 
+ 
+
+
 
   });
   calendar.render();
@@ -75,9 +131,10 @@ document.addEventListener('DOMContentLoaded', function() {
                                     <div class="col-md-6">
                                         <h5 class="card-title mb-0">Citas</h5>
                                     </div>
-                                    <div class="col-md-6 row d-flex justify-content-end">
-                                        <a class="btn btn-primary col-md-3" href="#">Agregar</a>
-                                    </div>
+                                   <!-- Button trigger modal -->
+
+
+
                                     <div id='calendar'></div>
                                 </div>
                                
@@ -88,10 +145,38 @@ document.addEventListener('DOMContentLoaded', function() {
             </main>
         </div>
     </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <script src="./assets/js/app.js"></script>
     <?php include('../components/swal.php') ?>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="tituloEvento"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="descripcionEvento"> </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-success">Guardar cita</button>
+      <button type="button" class="btn btn-warning">Modificar cita</button>
+      <button type="button" class="btn btn-danger">Borrar cita</button>
+
+
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 
