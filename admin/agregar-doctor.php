@@ -110,23 +110,21 @@ include('./db/session-validate.php');
 
     if ($_POST) {
 
-        echo $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : "";
-        echo '<br />';
-        echo $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : "";
-        echo $edad = isset($_POST['edad']) ? $_POST['edad'] : "";
-        echo '<br />';
-        echo $correo = isset($_POST['correo']) ? $_POST['correo'] : "";
-        echo '<br />';
-        echo $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : "";
-        echo '<br />';
-        echo $especialidad = isset($_POST['especialidad']) ? $_POST['especialidad'] : "";
-        echo '<br />';
-        echo $cedula = isset($_POST['cedula']) ? $_POST['cedula'] : "";
-        echo '<br />';
+        $nombre = $_POST['nombre'];
+        $direccion = $_POST['direccion'];
+        $edad =  $_POST['edad'];
+        $correo = $_POST['correo'];
+        $telefono = $_POST['telefono'];
+        $especialidad = $_POST['especialidad'];
+        $cedula = $_POST['cedula'];
 
         if ($nombre == '' || $direccion = '' || $correo = '' || $telefono == ''  || $especialidad == '' || $cedula == '') { ?>
             <script>
-                alert('Completa los campos requeridos');
+                Swal.fire(
+                    'Error',
+                    'Completa todos los campos',
+                    'warning'
+                )
             </script>
             <?php
         } else {
@@ -158,6 +156,7 @@ include('./db/session-validate.php');
         }
     }
     ?>
+    <?php include '../components/swal.php' ?>
 
 </body>
 

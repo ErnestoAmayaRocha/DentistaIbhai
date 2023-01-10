@@ -6,7 +6,7 @@ setlocale(LC_TIME, "spanish");
 $server = "localhost";
 $user = "root";
 $password = "";
-$db_name = "dmsp";
+$db_name = "ibhai";
 
 // $user = "dmsp";
 // $password = "Nouammiavfz)";

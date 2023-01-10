@@ -87,7 +87,7 @@ $countDoctores = $doctoes->rowCount();
                                                         <td> <?php echo $doc['especialidad'] ?> </td>
                                                         <td> <?php echo $doc['cedula_profesional'] ?> </td>
                                                         <td>
-                                                            <button class="btn btn-sm btn-danger">Eliminar</button>
+                                                            <button class="btn btn-sm btn-danger" onclick="eliminarDoc(<?php echo $doc['id_doctor'] ?>)">Eliminar</button>
                                                         </td>
                                                     </tr>
                                                 <?php
@@ -113,7 +113,28 @@ $countDoctores = $doctoes->rowCount();
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="./assets/js/app.js"></script>
+    <?php include '../components/swal.php' ?>
+
+    <script>
+        const eliminarDoc = (id) => {
+            $.get("db/doctor-eliminar.php", {
+                id
+            }, function(data) {
+                Swal.fire(
+                    '',
+                    '',
+                    data
+                )
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000);
+
+            });
+        }
+    </script>
+
 
 </body>
 
