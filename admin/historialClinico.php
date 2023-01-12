@@ -3,6 +3,12 @@ include './db/session-validate.php';
 include '../db/config.php';
 $reportes = $db->query("SELECT * FROM reportes ORDER BY created_at");
 $countReportes = $reportes->rowCount();
+
+$doctores = $db->query("SELECT * FROM doctores");
+$doctores = $doctores->fetchAll(PDO::FETCH_ASSOC);
+
+$pacientes = $db->query("SELECT * FROM pacientes");
+$pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,24 +74,39 @@ $countReportes = $reportes->rowCount();
                            <div class="col-sm-8">
                               <label class="form-label fw-bold" for="odontologo">Odontologo:</label>
                               <select class='form-control' name="odontologo" id="odontologo">
-                                 <option value="">Ejemplo</option>
-                                 <option value="">Ejemplo</option>
-                                 <option value="">Ejemplo</option>
+                                 <option value="" selected disabled>Selecciona una opción</option>
+                                 <?php
+                                    foreach ($doctores as $doc) { ?>
+                                 <option value="<?php echo $doc['cedula_profesional']; ?>"><?php echo $doc['nombre'] ?>
+                                 </option>
+                                 <?php
+                                    }
+                                    ?>
                               </select>
                            </div>
                            <div class="col-sm-4">
                               <label class="form-label fw-bold" for="matricula">N° de Matrícula:</label>
-                              <input type="text" name="matricula" id="matricula" class="form-control">
+                              <input type="text" name="matricula" id="matricula" class="form-control" disabled readonly>
                            </div>
                         </div>
                         <div class="col-sm-12 row mb-3">
                            <div class="col-sm-8">
                               <label class="form-label fw-bold" for="paciente">Paciente:</label>
-                              <input type="text" name="paciente" id="paciente" class="form-control">
+                              <select name="paciente" id="paciente" class='form-control'>
+                                 <option value="" selected disabled>Selecciona una opción</option>
+                                 <?php
+                                    foreach ($pacientes as $paci) { ?>
+                                 <option value="<?php echo $paci['id']; ?>">
+                                    <?php echo $paci['nombre'] ?>
+                                 </option>
+                                 <?php
+                                    }
+                                    ?>
+                              </select>
                            </div>
                            <div class="col-sm-4">
                               <label class="form-label fw-bold" for="afil">N° Afil:</label>
-                              <input type="text" name="afil" id="afil" class="form-control">
+                              <input type="text" name="afil" id="afil" class="form-control" disabled readonly>
                            </div>
                         </div>
                         <div class="col-sm-12 row mb-3">
@@ -592,6 +613,27 @@ $countReportes = $reportes->rowCount();
       </div>
    </div>
    <script src="./assets/js/app.js"></script>
+   <script>
+   document.getElementById("odontologo").onchange = function() {
+      myFunction()
+   };
+
+   function myFunction() {
+      const x = document.getElementById("odontologo");
+      const matricula = document.getElementById("matricula");
+      matricula.value = x.value;
+   }
+
+   document.getElementById("paciente").onchange = function() {
+      myFunction1()
+   };
+
+   function myFunction1() {
+      const x = document.getElementById("paciente");
+      const matricula = document.getElementById("afil");
+      matricula.value = x.value;
+   }
+   </script>
 </body>
 
 </html>
