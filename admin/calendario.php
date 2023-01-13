@@ -78,10 +78,21 @@ include('./db/session-validate.php');
 
 
                     // change the border color just for fun
-                    info.el.style.borderColor = 'red';
+
                     $('#tituloEvento').html(info.event.title);
-                    $('#descripcionEvento').html(info.event.extendedProps.descripcion);
-                    $('#exampleModal').modal('show');
+                    $('#txtTitulo').val(info.event.title);
+                    //mostrar info del evento en input
+                    $('#txtDescripcion').val(info.event.extendedProps.descripcion);
+                    $('#txtID').val(info.event.id);
+                    const Fecha = info.event.extendedProps.fecha.substring(0, 10);
+
+                    const Hora = info.event.extendedProps.fecha.substring(11, 19); 
+                    
+
+                    $('#txtFecha').val(Fecha);
+                    $('#txtHora').val(Hora);
+                    $('#txtColor').val(info.event.textColor);
+                    $('#ModalEventos').modal('show');
 
                 },
 
@@ -143,30 +154,7 @@ include('./db/session-validate.php');
     <?php include('../components/swal.php') ?>
 
 
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="tituloEvento"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div id="descripcionEvento"> </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success">Guardar cita</button>
-                    <button type="button" class="btn btn-warning">Modificar cita</button>
-                    <button type="button" class="btn btn-danger">Borrar cita</button>
 
-
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
@@ -185,6 +173,10 @@ include('./db/session-validate.php');
                     <div class="container">
                         <form>
                             <div class="row g-2">
+
+                                <div class="col-12 text-center">
+                                    Id: <input type="text" id="txtID" name="txtID" />
+                                </div>
                                 <div class="col-12 text-center">
                                     Fecha: <input type="text" id="txtFecha" name="txtFecha" />
                                 </div>
@@ -192,7 +184,7 @@ include('./db/session-validate.php');
                                     Titulo: <input type="text" id="txtTitulo" name="txtTitulo" />
                                 </div>
                                 <div class="col-12 text-center">
-                                    Hora: <input type="text" id="txtHora" name="txtHora" value="10:30" />
+                                    Hora: <input type="text" id="txtHora" name="txtHora" />
                                 </div>
                                 <div class="col-12 text-center">
 
@@ -200,7 +192,7 @@ include('./db/session-validate.php');
                                 </div>
                                 <div class="col-12 text-center">
 
-                                    Color: <input type="color" id="txtColor" name="txtColor" value="#ff0000" />
+                                    Color: <input type="color" id="txtColor" name="txtColor"  />
                                 </div>
                             </div>
                         </form>
@@ -212,7 +204,7 @@ include('./db/session-validate.php');
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success">Guardar cita</button>
+                    <button type="button" id="btnAgregar" class="btn btn-success">Guardar cita</button>
                     <button type="button" class="btn btn-warning">Modificar cita</button>
                     <button type="button" class="btn btn-danger">Borrar cita</button>
 
@@ -224,6 +216,51 @@ include('./db/session-validate.php');
             </div>
         </div>
     </div>
+    <script>
+
+var NuevoEvento;
+
+        $('#btnAgregar').click(function() {
+         RecolectarDatosGui(); 
+         EnviarInformacion('agregar',NuevoEvento)
+
+           
+
+        });
+        function RecolectarDatosGui(){
+            var nuevoEvento = {
+                id:$('#txtID').val(),
+                title: $('#txtTitulo').val(),
+                paciente:$('#txtPaciente').val(),
+                doctor:$('#txtDoctor').val(), 
+                descripcion: $('#txtDescripcion').val(),
+                start: $('#txtFecha').val() + " " + $('#txtHora').val(),
+                textColor: $('#txtColor').val()
+              
+
+            };
+
+        }
+
+
+        function EnviarInformacion(accion,objEvento){
+            $.ajax({
+                type: "POST",
+                url:'eventos.php?accion='+accion,
+                data:objEvento,
+                success: function(msg){
+                if (msg){
+                    $('#CalendarioWeb').FullCalendar('refetchEvents');
+                    $("#ModalEventos").modal('toggle');
+                }
+                    
+                },
+                error: function(){
+                    alert("hay un error");
+                }
+            })
+        }
+    </script>
 
 </body>
 
