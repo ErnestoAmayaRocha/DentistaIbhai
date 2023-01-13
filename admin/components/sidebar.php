@@ -41,6 +41,16 @@
                     <i class="align-middle" data-feather="tablet"></i> <span class="align-middle">Calendario</span>
                 </a>
             </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="odontograma.php">
+                    <i class="align-middle" data-feather="tablet"></i> <span class="align-middle">Odontograma</span>
+                </a>
+            </li>
+            <li class="sidebar-item">
+                <a class="sidebar-link" href="examenes-clinicos.php">
+                    <i class="align-middle" data-feather="tablet"></i> <span class="align-middle">Examenes Clínicos</span>
+                </a>
+            </li>
             <!-- <li class="sidebar-item">
                 <a data-bs-target="#multi" data-bs-toggle="collapse" class="sidebar-link" aria-expanded="true">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-corner-right-down align-middle">

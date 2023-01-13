@@ -1,6 +1,12 @@
 <?php
 
 include('./db/session-validate.php');
+include('../db/config.php');
+
+$pacientes = $db->query("SELECT * FROM pacientes");
+$pacientes->execute();
+$pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
+
 
 ?>
 
@@ -59,7 +65,13 @@ include('./db/session-validate.php');
                                                 <div class="form-group col-md-6 9 my-3">
                                                     <label for="paciente" class="form-label fw-bold">Paciente</label>
                                                     <select class='form-control' name="paciente" id="paciente">
-                                                        <option value="1" selected>Selecciona una opción</option>
+                                                        <option disabled selected>Selecciona una opción</option>
+                                                        <?php
+                                                        foreach ($pacientes as $paciente) { ?>
+                                                            <option value="<?php echo $paciente['id'] ?>"><?php echo $paciente['nombre'] ?></option>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group col-md-6 my-3">

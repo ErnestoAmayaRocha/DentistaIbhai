@@ -17,7 +17,7 @@ include('./db/session-validate.php');
 
     <link rel="canonical" href="https://demo-basic.adminkit.io/" />
 
-    <title>Administración | IBHAI</title>
+    <title>Odontograma | IBHAI</title>
 
     <link href="./assets/css/app.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@ include('./db/session-validate.php');
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h1 mb-3 fw-bolder">Blog</h1>
+                    <h1 class="h1 mb-3 fw-bolder">Odontograma</h1>
 
                     <div class="row">
 
@@ -42,47 +42,44 @@ include('./db/session-validate.php');
                             <div class="card flex-fill">
                                 <div class="card-header row d-flex pt-4 border border-bottom border-1">
                                     <div class="col-md-6">
-                                        <h5 class="card-title mb-0">Historial de noticias</h5>
+                                        <h5 class="card-title mb-0">Odontogramas guardados</h5>
                                     </div>
                                     <div class="col-md-6 row d-flex justify-content-end">
-                                        <a class="btn btn-primary col-md-3" href="agregar-noticia.php">Agregar</a>
+                                        <a class="btn btn-primary col-md-3" href="agregar-odontograma.php">Agregar</a>
                                     </div>
                                 </div>
                                 <?php
                                 include('../db/config.php');
 
-                                $noticias = $db->query("SELECT * FROM noticias ORDER BY fecha DESC");
-                                $countNoticias = $noticias->rowCount();
+                                $odonto = $db->query("SELECT *, pacientes.nombre AS nameP, odontograma.nombre AS oName FROM odontograma INNER JOIN pacientes ON odontograma.fk_paciente = pacientes.id ORDER BY created_at DESC");
+                                $countOdonto = $odonto->rowCount();
 
-                                if ($countNoticias > 0) {
+                                if ($countOdonto > 0) {
                                     $i = 1;
                                 ?>
-                                    <div class="table-responsive">
+                                    <div class="table-responsive text-center">
                                         <table class="table table-hover my-0 table-responsive">
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Título</th>
-                                                    <th class="d-none d-xl-table-cell">Subtítulo</th>
-                                                    <th class="d-none d-xl-table-cell">Descripción</th>
+                                                    <th>Paciente</th>
+                                                    <th>Nombre del archivo</th>
                                                     <th class="d-none d-xl-table-cell">Fecha de creación</th>
-                                                    <th>Imagen</th>
+                                                    <th class="d-none d-xl-table-cell">Archivo</th>
                                                     <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
 
-                                                <?php foreach ($noticias as $noticia) { ?>
+                                                <?php foreach ($odonto as $row) { ?>
                                                     <tr>
                                                         <td><?php echo $i++ ?></td>
-                                                        <td><?php echo $noticia['titulo'] ?></td>
-                                                        <td class="d-none d-xl-table-cell"><?php echo $noticia['subtitulo'] ?></td>
-                                                        <td><span class="text-truncate"> <?php echo $noticia['descripcion'] ?> </span></td>
-                                                        <td class="d-none d-xl-table-cell"><?php echo $noticia['fecha'] ?></td>
-                                                        <td class="d-none d-xl-table-cell w-25"> <img src="./<?php echo $noticia['imagen_path'] ?>" width="100"></td>
+                                                        <td><?php echo $row['nameP'] ?></td>
+                                                        <td><?php echo $row['oName'] ?></td>
+                                                        <td> <?php echo strftime("%Y-%m-%d", strtotime($row['created_at'])) ?> </td>
+                                                        <td class="d-none d-xl-table-cell w-25"> <a class="btn btn-sm btn-primary" target="_blank" href="./<?php echo $row['path'] ?>">Ver Arcivo</a></td>
                                                         <td class="d-none d-md-table-cell">
-                                                            <!-- <button class="btn btn-warning">Editar</button> -->
-                                                            <a class="btn btn-danger" href="<?php echo './db/noticia-eliminar.php?id=' . $noticia['id_noticia'] . '&img=' . $noticia['imagen_path'] ?>">Eliminar</a>
+                                                            <a class="btn btn-danger" href="<?php echo './db/eliminar-odontograma.php?id=' . $row['id_odontograma'] . '&path=' . $row['path'] ?>">Eliminar</a>
                                                         </td>
                                                     </tr>
                                                 <?php

@@ -21,6 +21,11 @@ $evolucion = $db->prepare("SELECT * FROM evolucion");
 $evolucion->execute();
 $evolucion = $evolucion->fetchAll(PDO::FETCH_ASSOC);
 
+$pacientes = $db->query("SELECT * FROM pacientes");
+$pacientes->execute();
+$pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -199,6 +204,18 @@ $evolucion = $evolucion->fetchAll(PDO::FETCH_ASSOC);
                         <!-- Archivos -->
                         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
                            <form method="POST" action="./db/ortodoncia-guardar-archivo.php" enctype="multipart/form-data">
+                              <div class="form-group col-md-12 mb-4">
+                                 <label for="paciente" class="form-label fw-bold">Paciente</label>
+                                 <select class='form-control' name="fk" id="fk" required>
+                                    <option value="" disabled selected>Selecciona una opción</option>
+                                    <?php
+                                    foreach ($pacientes as $paciente) { ?>
+                                       <option value="<?php echo $paciente['id'] ?>"><?php echo $paciente['nombre'] ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                 </select>
+                              </div>
                               <div class="form-group my-3">
                                  <label class='fw-bolder mb-2' for="archivo">Nombre del archivo</label>
                                  <input type="text" name="nombre" id="nombre" placeholder="Nombre del archivo" class="form-control" required>

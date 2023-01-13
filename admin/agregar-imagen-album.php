@@ -9,7 +9,7 @@ if ($id_album == '') {
     header('Location: Ortodoncia.php');
 }
 
-$album = $db->prepare("SELECT * FROM album WHERE id_album = :id");
+$album = $db->prepare("SELECT *, pacientes.nombre AS nameP, album.nombre AS nameAl FROM album INNER JOIN pacientes ON album.fk_paciente = pacientes.id WHERE id_album = :id");
 $album->bindParam(':id', $id_album);
 $album->execute();
 $album = $album->fetchAll(PDO::FETCH_ASSOC);
@@ -18,7 +18,6 @@ $images = $db->prepare("SELECT * FROM album_imagen WHERE fk_album = :id");
 $images->bindParam(':id', $id_album);
 $images->execute();
 $images = $images->fetchAll(PDO::FETCH_ASSOC);
-
 
 $i = 0;
 
@@ -56,7 +55,7 @@ $i = 0;
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h1 mb-3 fw-bolder">Editar álbum de fotos</h1>
+                    <h1 class="h1 mb-3 fw-bolder">Editar álbum <?php echo $album[0]['nameAl'] ?></h1>
 
                     <div class="row">
 
@@ -64,7 +63,7 @@ $i = 0;
                             <div class="card flex-fill">
                                 <div class="card-header row d-flex pt-4 border border-bottom border-1">
                                     <div class="col-md-6">
-                                        <h5 class="card-title mb-0">Álbum <?php echo $album[0]['nombre'] ?></h5>
+                                        <h5 class="card-title mb-0">Álbum de <?php echo $album[0]['nameP'] ?></h5>
                                     </div>
                                     <div class="col-md-6 row d-flex justify-content-end">
                                         <a class="btn btn-secondary col-md-3 mx-2" href="Ortodoncia.php">Regresar</a>
