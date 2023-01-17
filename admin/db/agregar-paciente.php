@@ -8,14 +8,16 @@ if ($_POST) {
    echo $direccion = isset($_POST['direccion']) ? $_POST['direccion'] : " ";
    echo $correo = isset($_POST['correo']) ? $_POST['correo'] : " ";
    echo $telefono = isset($_POST['telefono']) ? $_POST['telefono'] : " ";
+   echo $odontologo = isset($_POST['odontologo']) ? $_POST['odontologo'] : " ";
 
    try{
-   $paciente = $db->prepare("INSERT INTO pacientes (nombre, edad, direccion, correo, telefono) VALUES (:nombre, :edad, :direccion, :correo, :telefono) ");
+   $paciente = $db->prepare("INSERT INTO pacientes (nombre, edad, direccion, correo, telefono, odontologo) VALUES (:nombre, :edad, :direccion, :correo, :telefono, :odontologo) ");
    $paciente->bindParam(':nombre', $nombre);
    $paciente->bindParam(':edad', $edad);
    $paciente->bindParam(':direccion', $direccion);
    $paciente->bindParam(':correo', $correo);
    $paciente->bindParam(':telefono', $telefono);
+   $paciente->bindParam(':odontologo', $odontologo);
    $paciente->execute();
    ?>
 <script>
