@@ -46,7 +46,7 @@ include('./db/session-validate.php');
                     myCustomButton: {
                         text: 'Agregar Cita',
                         click: function() {
-                            alert('clicked the custom button!');
+                            window.location.assign("noticias.php")
                         }
                     },
 
@@ -250,7 +250,7 @@ var NuevoEvento;
                 data:objEvento,
                 success: function(msg){
                 if (msg){
-                    $('#CalendarioWeb').FullCalendar('refetchEvents');
+                   
                     $("#ModalEventos").modal('toggle');
                 }
                     

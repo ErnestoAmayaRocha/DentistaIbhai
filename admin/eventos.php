@@ -7,7 +7,7 @@ switch ($accion) {
     case 'agregar':
         $sentenciaSQL = $pdo->prepare("INSERT INTO `calendario` (`id`, `title`, `paciente`, `doctor`,`descripcion`,`start`, `end`,`color`,`textColor`,`fecha`) VALUES (NULL, :title, :paciente ,:doctor,:descripcion,:start,:end,:color,:textcolor,:fecha)");
         $respuesta =  $sentenciaSQL->execute(array(
-            "title" => "title",
+            "title" => $_POST['title'],
             "paciente" => "paciente",
             "doctor" => "doctor",
             "descripcion" => "descripcion",
@@ -17,7 +17,7 @@ switch ($accion) {
             "textcolor" => '#ff0001',
             "fecha"=> '2023-01-12 00'
         ));
-
+echo json_encode($respuesta);
         break;
     case 'eliminar':
         echo "accion eliminar";
