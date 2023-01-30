@@ -33,7 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['id'] = $passwordValidation[0]['id_usuario'];
         $_SESSION['token'] = md5(date('Y-m-d H:i:s'));
         $_SESSION['username'] = $passwordValidation[0]['nombre'];
+        $_SESSION['rol'] = $passwordValidation[0]['rol'];
         header('Location: ../admin/');
+        // $passwordValidation[0]['rol'] === 'admin' ? header('Location: ../admin/') : header('Location: ../admin/caja.php');
     }
 } else {
     header('Location: ../index.php');
