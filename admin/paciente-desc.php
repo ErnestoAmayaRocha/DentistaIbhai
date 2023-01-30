@@ -115,11 +115,14 @@ include('../db/config.php');
                                  <input type="number" class="form-control" name="telefono" maxlength="10"
                                     value="<?php echo $user['telefono']?>" disabled />
                               </div>
-                              <h1 class='mt-3'>Historia clinica general</h1>
-                              <hr>
 
                               <!-- inicia historia clinica -->
 
+                              <?php 
+                              if(!empty($historial)){
+                                 ?>
+                              <h1 class='mt-3'>Historia clinica general</h1>
+                              <hr>
                               <div>
                                  <div class="col-sm-12 row mb-3">
                                     <div class="col-sm-6">
@@ -734,9 +737,15 @@ include('../db/config.php');
                                     </div>
                                  </div>
                               </div>
+                              <?php
+                              }
+                              
+                              ?>
 
                               <!-- termina historia clinica -->
-
+                              <?php 
+                              if(!empty($documentos)){
+                                 ?>
                            </div>
                            <h1>Examen clínico: <?php echo $documentos['nombre'] ?></h1>
                            <hr>
@@ -746,7 +755,9 @@ include('../db/config.php');
                               <iframe class="pdf"
                                  src="https://docs.google.com/viewer?url=https://utdgrupoti.com/IBHAI/<?php echo $documentos['path'] ?>&embedded=true"></iframe>
                            </div>
-
+                           <?php 
+}
+?>
                         </form>
 
 

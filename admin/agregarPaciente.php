@@ -1,7 +1,10 @@
 <?php
 
 include('./db/session-validate.php');
+include '../db/config.php';
 
+$doctores = $db->query("SELECT * FROM doctores");
+$doctores = $doctores->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 
@@ -79,7 +82,21 @@ include('./db/session-validate.php');
                                  <label for="telefono" class="form-label fw-bold">Teléfono</label>
                                  <input type="number" class="form-control" name="telefono" maxlength="10" required />
                               </div>
-                              <div class="col-sm-12 mb-3">
+                              <div class="col-sm-12">
+                                 <label class="form-label fw-bold" for="odontologo">Odontologo:</label>
+                                 <select class='form-control' name="odontologo" id="odontologo">
+                                    <option value="" selected disabled>Selecciona una opción</option>
+                                    <?php
+                                    foreach ($doctores as $doc) { ?>
+                                    <option value="<?php echo $doc['id_doctor']; ?>">
+                                       <?php echo $doc['nombre'] ?>
+                                    </option>
+                                    <?php
+                                    }
+                                    ?>
+                                 </select>
+                              </div>
+                              <div class="col-sm-12 my-3">
                                  <input type="submit" value="Guardar" class="btn btn-success col-sm-12">
                               </div>
                            </div>
