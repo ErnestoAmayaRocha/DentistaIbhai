@@ -22,7 +22,7 @@ $fk === '' && header('Location: index.php');
    <link rel="shortcut icon" href="../assets/img/logo_DMSP.png" />
 
    <link rel="canonical" href="https://demo-basic.adminkit.io/" />
-
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <title>IBHAI</title>
 
    <link href="./assets/css/app.css" rel="stylesheet">
@@ -62,6 +62,7 @@ $fk === '' && header('Location: index.php');
 <body>
    <?php
    $id_user = $_GET['id'];
+
    $stmt = $db->prepare("SELECT * FROM pacientes WHERE id=:id");
    $stmt->execute(['id' => $id_user]);
    $user = $stmt->fetch();
@@ -685,22 +686,18 @@ $fk === '' && header('Location: index.php');
                      </div>
                   </div>
 
-                  <div class="card">
+                  <div class="">
                      <div class="col-sm-12 mt-5 py-3 border-2 border-top rounded rounded-1">
                         <div>
-                           <div class="col-sm-12 mb-3 row d-flex justify-content-end">
-                              <label class='fw-bolder mb-2 col-md-9 pl-3'>Evolución</label>
-                              <div class="col-md-2 text-right">
-                                 <button class="btn btn-sm btn-primary" type="submit" onclick="sendData()">Agregar</button>
-                              </div>
+                           <div class="col-sm-12 mb-3 row d-flex justify-content-end px-5">
+                              <label class='fw-bolder mb-2 col-md-12'>Evolución</label>
                            </div>
-                           <div class="col-md-12 row d-flex justify-content-center px-4 mb-3">
-                              <div class="input-group">
-                                 <span class="input-group-text">Evolución</span>
-                                 <input type="date" class="form-control" id="fecha_evolucion" name="fecha_evolucion" placeholder="Fecha" required>
-                                 <input type="text" class="form-control" id="evolucion" name="evolucion" placeholder="Evolución" required>
+                           <div class="col-md-12 row d-flex justify-content-center px-5 mb-3">
+                              <div class="input-group mb-3">
+                                 <input type="date" class="form-control" id="fecha_evolucion" placeholder="" aria-describedby="button-addon1">
+                                 <input type="text" class="form-control" id="evolucion" placeholder="Evolución" aria-describedby="button-addon1">
+                                 <button class="btn btn-outline-primary" type="button" id="btn-ev" onclick="sendData(<?php echo $id_user ?>)">Agregar</button>
                               </div>
-                              <input type="hidden" class="form-control" id="fk_paciente" name="fk_paciente" value="<?php echo $fk ?>" required>
                            </div>
                         </div>
                         <?php
@@ -720,7 +717,7 @@ $fk === '' && header('Location: index.php');
                                        <td><?php echo $row['fecha']; ?></td>
                                        <td><?php echo $row['descripcion']; ?></td>
                                        <td>
-                                          <button class="btn btn-sm btn-danger" onclick="borrarEvolucion(<?php echo $row['id_evolucion']; ?>)">Eliminar</button>
+                                          <button class="btn btn-sm btn-danger" id="btn-el-<?php echo $row['id_evolucion']; ?>" onclick="borrarEvolucion(<?php echo $row['id_evolucion']; ?>)">Eliminar</button>
                                        </td>
                                     </tr>
                                  <?php
@@ -730,8 +727,8 @@ $fk === '' && header('Location: index.php');
                            </table>
                         <?php
                         } else { ?>
-                           <div class="text-muted text-center p-3 shadow shadow-sm mt-5">
-                              No hay registros de evolución
+                           <div class="border-top border-2 text-muted text-center p-3 mt-5 mx-5">
+                              No se encontraron registros
                            </div>
                         <?php
                         }
@@ -749,38 +746,44 @@ $fk === '' && header('Location: index.php');
 
    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
    <script src="./assets/js/app.js"></script>
-
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    <script>
       console.log(<?php echo $documentos ?>)
    </script>
 
    <script>
-      const sendData = () => {
+      const sendData = (fk) => {
 
          const fecha = document.getElementById('fecha_evolucion').value;
          const evolucion = document.getElementById('evolucion').value;
-         const fk = document.getElementById('fk_paciente').value;
+         const btn = document.getElementById('btn-ev');
 
-         $.ajax({
-            type: "POST",
-            url: "db/evolucion-agregar.php",
-            data: {
-               fecha: fecha,
-               evolucion: evolucion,
-               fk: fk
-            },
-            success: res => {
-               console.log(res);
-               if (res === "success") {
-                  window.location.reload();
-               } else if (res === "error") {
-                  console.log(res);
+         if (fecha != "" && evolucion != "") {
+            btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Guardando...`;
+            btn.disabled = true;
+            $.ajax({
+               type: "POST",
+               url: "db/evolucion-agregar.php",
+               data: {
+                  fecha: fecha,
+                  evolucion: evolucion,
+                  fk: fk
+               },
+               success: res => {
+                  if (res === "success") {
+                     window.location.reload();
+                  } else if (res === "error") {
+                     console.log(res);
+                  }
                }
-            }
-         })
+            })
+         }
       }
 
       const borrarEvolucion = (id) => {
+         const btn = document.getElementById('btn-el-' + id);
+         btn.innerHTML = `<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Eliminado...`;
+         btn.disabled = true;
          $.ajax({
             type: "GET",
             url: `db/evolucion-eliminar.php?id=${id}`,
