@@ -34,7 +34,7 @@ include('./db/session-validate.php');
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h1 mb-3 fw-bolder">Blog</h1>
+                    <h1 class="h1 mb-3 fw-bolder">Noticas</h1>
 
                     <div class="row">
 

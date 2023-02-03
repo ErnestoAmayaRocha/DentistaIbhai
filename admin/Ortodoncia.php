@@ -155,48 +155,10 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
                                  <textarea class='form-control' name="nota" id="nota" cols="30" rows="3"></textarea>
                               </div>
                            </div>
-                           <div class="col-sm-12 mt-5 py-3 border-2 border-top rounded rounded-1">
-                              <div>
-                                 <div class="col-sm-12 mb-3 row d-flex justify-content-end">
-                                    <label class='fw-bolder mb-2 col-md-9 pl-3'>Evolución</label>
-                                    <div class="col-md-2 text-right">
-                                       <button class="btn btn-sm btn-primary" type="submit" onclick="sendData()">Agregar</button>
-                                    </div>
-                                 </div>
-                                 <div class="col-md-12 row d-flex justify-content-center px-4 mb-3">
-                                    <div class="input-group">
-                                       <span class="input-group-text">Evolución</span>
-                                       <input type="date" class="form-control" id="fecha_evolucion" name="fecha_evolucion" placeholder="Fecha" required>
-                                       <input type="text" class="form-control" id="evolucion" name="evolucion" placeholder="Evolución" required>
-                                    </div>
-                                    <input type="hidden" class="form-control" id="fk_paciente" name="fk_paciente" value="1" required>
-                                 </div>
-                              </div>
-                              <table class="table table-light table-striped text-center">
-                                 <thead>
-                                    <tr>
-                                       <th>Fecha</th>
-                                       <th>Evolución</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <?php
-                                    foreach ($evolucion as $row) { ?>
-                                       <tr>
-                                          <td><?php echo $row['fecha']; ?></td>
-                                          <td><?php echo $row['evolucion']; ?></td>
-                                       </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                 </tbody>
-                              </table>
 
-
-                           </div>
-                           <div class="col-sm-12 mt-3 row justify-content-center">
-                              <div class="col-sm-1">
-                                 <input type="submit" value="Guardar" class="btn btn-success">
+                           <div class="col-sm-12 mt-3 row justify-content-center my-5">
+                              <div class="col-sm-4 my-2">
+                                 <input type="submit" value="Guardar" class="btn btn-success form-control">
                               </div>
                            </div>
                         </div>
@@ -296,13 +258,26 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
             type: "POST",
             url: "db/evolucion-agregar.php",
             data: {
-               fecha,
-               evolucion,
-               fk
+               fecha: fecha,
+               evolucion: evolucion,
+               fk: fk
             },
-            success: function(datos) {
-               alert(datos)
-            },
+            success: res => {
+               console.log(res);
+               if (res === "success") {
+                  window.location.reload();
+               } else if (res === "error") {
+                  console.log(res);
+               }
+            }
+         })
+      }
+
+      const borrarEvolucion = (id) => {
+         $.ajax({
+            type: "GET",
+            url: `db/evolucion-eliminar.php?id=${id}`,
+            success: () => window.location.reload()
          })
       }
    </script>

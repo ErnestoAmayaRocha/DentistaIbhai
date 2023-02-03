@@ -22,12 +22,17 @@
             </li> -->
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="Ortodoncia.php">
-                        <i class="align-middle" data-feather="slack"></i> <span class="align-middle">Ortodoncia</span>
+                        <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Ortodoncia</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="doctores.php">
                         <i class="align-middle" data-feather="users"></i> <span class="align-middle">Doctores</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link" href="pacientes.php">
+                        <i class="align-middle" data-feather="user"></i> <span class="align-middle">Pacientes</span>
                     </a>
                 </li>
 
@@ -47,12 +52,12 @@
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="odontograma.php">
-                        <i class="align-middle" data-feather="folder"></i> <span class="align-middle">Odontograma</span>
+                        <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Odontograma</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a class="sidebar-link" href="examenes-clinicos.php">
-                        <i class="align-middle" data-feather="file"></i> <span class="align-middle">Examenes Clínicos</span>
+                        <i class="align-middle" data-feather="file-text"></i> <span class="align-middle">Examenes Clínicos</span>
                     </a>
                 </li>
                 <!-- <li class="sidebar-item">
