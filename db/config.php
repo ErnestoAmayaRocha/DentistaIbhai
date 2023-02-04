@@ -7,7 +7,7 @@ $server = "localhost";
 $user = "root";
 $password = "";
 //  $db_name = "u646610080_dentista";
-$db_name = "ibhai";
+$db_name = "dentista";
 
 // $user = "dmsp";
 // $password = "Nouammiavfz)";
