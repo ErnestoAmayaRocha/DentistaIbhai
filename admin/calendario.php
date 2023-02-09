@@ -46,7 +46,7 @@ include('./db/session-validate.php');
                     myCustomButton: {
                         text: 'Agregar Cita',
                         click: function() {
-                            window.location.assign("noticias.php")
+                            window.location.assign("eventoslista.php")
                         }
                     },
 
@@ -57,20 +57,9 @@ include('./db/session-validate.php');
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay'
                 },
-                events: 'http://localhost/dentistagit/admin/eventos.php',
+                events: 'https://utdgrupoti.com/IBHAI/admin/eventos.php',
 
-                dateClick: function(info) {
-
-
-                    /* alert('Clicked on: ' + info.dateStr);
-                    alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-                    alert('Current view: ' + info.view.type);
-                   
-                    info.dayEl.style.backgroundColor = 'red'; */
-                    $('#txtFecha').val(info.dateStr);
-                    $('#txtTitle').val(info.dateStr);
-                    $('#ModalEventos').modal('show');
-                },
+               
 
 
                 eventClick: function(info) {
@@ -171,31 +160,39 @@ include('./db/session-validate.php');
 
                     </div>
                     <div class="container">
+                       
+                              
+                             
+                               
+                                
+                               
+                           
+                       
                         <form>
-                            <div class="row g-2">
-
-                                <div class="col-12 text-center">
-                                    Id: <input type="text" id="txtID" name="txtID" />
-                                </div>
-                                <div class="col-12 text-center">
-                                    Fecha: <input type="text" id="txtFecha" name="txtFecha" />
-                                </div>
-                                <div class="col-12 text-center">
-                                    Titulo: <input type="text" id="txtTitulo" name="txtTitulo" />
-                                </div>
-                                <div class="col-12 text-center">
-                                    Hora: <input type="text" id="txtHora" name="txtHora" />
-                                </div>
-                                <div class="col-12 text-center">
-
-                                    Descripcion: <textarea id="txtDescripcion" rows="3"> </textarea>
-                                </div>
-                                <div class="col-12 text-center">
-
-                                    Color: <input type="color" id="txtColor" name="txtColor"  />
-                                </div>
-                            </div>
-                        </form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Fecha:</label>
+    <input type="text" class="form-control" id="txtFecha" name="txtFecha" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+   <div class="form-group">
+    <label for="exampleInputEmail2">Titulo:</label>
+    <input type="text" class="form-control" id="txtTitulo" name="txtTitulo" name="txtFecha" aria-describedby="emailHelp" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Hora:</label>
+    <input type="text" class="form-control" id="txtHora" name="txtHora">
+  </div>
+   <div class="form-group">
+    <label for="exampleInputPassword1">Descripcion:</label>
+    <textarea rows="3" class="form-control" id="txtDescripcion" >
+  </div>
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">color:</label>
+    <textarea rows="3" class="form-control" id="txtDescripcion" >
+  </div>
+ 
+  
+</form>
                     </div>
 
 
