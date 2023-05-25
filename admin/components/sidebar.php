@@ -56,27 +56,19 @@
          </li>
          <li class="sidebar-item">
             <a class="sidebar-link" href="ortodoncia.php">
-<<<<<<< HEAD
-=======
+
           
->>>>>>> 217c4f9a72da2c3a96f3df10f8313390702708d9
                <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Ortodoncia</span>
             </a>
          </li>
          <li class="sidebar-item">
-<<<<<<< HEAD
-=======
 
->>>>>>> 217c4f9a72da2c3a96f3df10f8313390702708d9
-            <a class="sidebar-link" href="Ortodoncia.php">
+            <a class="sidebar-link" href="Ortodoncia2.php">
                <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Ortodoncia antigua</span>
             </a>
          </li>
          <li class="sidebar-item">
-<<<<<<< HEAD
-=======
 
->>>>>>> 217c4f9a72da2c3a96f3df10f8313390702708d9
             <a class="sidebar-link" href="examenes-clinicos.php">
                <i class="align-middle" data-feather="file-text"></i> <span class="align-middle">Examenes Clínicos</span>
             </a>
