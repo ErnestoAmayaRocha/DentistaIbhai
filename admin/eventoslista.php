@@ -52,7 +52,7 @@ $countDoctores = $doctoes->rowCount();
                                         <h5 class="card-title mb-0">Registro de citas</h5>
                                     </div>
                                     <div class="col-md-6 row d-flex justify-content-end">
-                                        <a class="btn btn-primary col-md-3" href="agregar-doctor.php">Agregar</a>
+                                        <a class="btn btn-primary col-md-3" href="agregar-cita.php">Agregar</a>
                                     </div>
                                 </div>
 
@@ -84,7 +84,7 @@ $countDoctores = $doctoes->rowCount();
                                                         <td> <?php echo $doc['fecha'] ?> </td>
                                                         
                                                         <td>
-                                                            <button class="btn btn-sm btn-danger" onclick="eliminarDoc(<?php echo $doc['id_doctor'] ?>)">Eliminar</button>
+                                                            <button class="btn btn-sm btn-danger" onclick="eliminarDoc(<?php echo $doc['id'] ?>)">Eliminar</button>
                                                         </td>
                                                     </tr>
                                                 <?php
@@ -116,7 +116,7 @@ $countDoctores = $doctoes->rowCount();
 
     <script>
         const eliminarDoc = (id) => {
-            $.get("db/doctor-eliminar.php", {
+            $.get("db/cita-eliminar.php", {
                 id
             }, function(data) {
                 Swal.fire(

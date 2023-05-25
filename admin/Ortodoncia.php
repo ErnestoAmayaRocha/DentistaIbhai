@@ -135,17 +135,17 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
                               <div class="col-sm-6">
                                  <label class='fw-bolder mb-2' for="anclaje_sup">Anclaje superior</label>
                                  <select class='form-control' name="anclaje_sup" id="anclaje_sup">
-                                    <option value="">Ejemplo</option>
-                                    <option value="">Ejemplo</option>
-                                    <option value="">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
                                  </select>
                               </div>
                               <div class="col-sm-6">
                                  <label class='fw-bolder mb-2' for="anclaje_inf">Anclaje inferior</label>
                                  <select name="anclaje_inf" id="anclaje_inf" class="form-control">
-                                    <option value="">Ejemplo</option>
-                                    <option value="">Ejemplo</option>
-                                    <option value="">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
                                  </select>
                               </div>
                            </div>

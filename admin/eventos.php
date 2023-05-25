@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: application/json');
-$pdo = new PDO("mysql:dbname=u646610080_dentista;host=localhost", "root", "");
+$pdo = new PDO("mysql:dbname=u646610080_dentista;host=localhost", "u646610080_dentista", "Dentistaibai1");
 //select events
 $accion = (isset($_GET['accion'])) ? $_GET['accion'] : 'leer';
 switch ($accion) {

@@ -4,10 +4,10 @@ date_default_timezone_set('America/Mexico_City');
 setlocale(LC_TIME, "spanish");
 
 $server = "localhost";
-$user = "root";
-$password = "";
-//  $db_name = "u646610080_dentista";
-$db_name = "dentista";
+$user = "u646610080_dentista";
+$password = "Dentistaibai1";
+ $db_name = "u646610080_dentista";
+//$db_name = "dentista";
 
 // $user = "dmsp";
 // $password = "Nouammiavfz)";
