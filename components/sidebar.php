@@ -55,19 +55,11 @@
             </a>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="ortodoncia.php">
-          
+            <a class="sidebar-link" href="Ortodoncia.php">
                <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Ortodoncia</span>
             </a>
          </li>
          <li class="sidebar-item">
-
-            <a class="sidebar-link" href="Ortodoncia.php">
-               <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Ortodoncia antigua</span>
-            </a>
-         </li>
-         <li class="sidebar-item">
-
             <a class="sidebar-link" href="examenes-clinicos.php">
                <i class="align-middle" data-feather="file-text"></i> <span class="align-middle">Examenes Clínicos</span>
             </a>

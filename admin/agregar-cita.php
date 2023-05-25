@@ -53,7 +53,9 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
                                         <h5 class="card-title mb-0">Información de la Cita</h5>
                                     </div>
                                     <div class="col-md-6 row d-flex justify-content-end">
+
                                         <a class="btn btn-secondary col-md-3" href="eventoslista.php">Regresar</a>
+
                                     </div>
                                 </div>
 
@@ -182,6 +184,7 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
             ?>
             <script>
                 window.location.href = "calendario.php?status=success"
+            
             </script>
     <?php
         }
