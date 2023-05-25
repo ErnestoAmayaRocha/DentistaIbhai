@@ -3,7 +3,7 @@
 include('./db/session-validate.php');
 include('../db/config.php');
 
-$doctoes = $db->query("SELECT * FROM calendario");
+$doctoes = $db->query("SELECT * FROM mensajes");
 $countDoctores = $doctoes->rowCount();
 
 ?>
@@ -41,7 +41,7 @@ $countDoctores = $doctoes->rowCount();
             <main class="content">
                 <div class="container-fluid p-0">
 
-                    <h1 class="h1 mb-3 fw-bolder">Calendario de citas</h1>
+                    <h1 class="h1 mb-3 fw-bolder">Mensajes</h1>
 
                     <div class="row">
 
@@ -49,10 +49,10 @@ $countDoctores = $doctoes->rowCount();
                             <div class="card flex-fill">
                                 <div class="card-header row d-flex pt-4 border border-bottom border-1">
                                     <div class="col-md-6">
-                                        <h5 class="card-title mb-0">Registro de citas</h5>
+                                        <h5 class="card-title mb-0">Registro de mensajes</h5>
                                     </div>
                                     <div class="col-md-6 row d-flex justify-content-end">
-                                        <a class="btn btn-primary col-md-3" href="agregar-cita.php">Agregar</a>
+                                        <a class="btn btn-primary col-md-3" href="agregar-mensajes.php">Agregar</a>
                                     </div>
                                 </div>
 
@@ -63,12 +63,10 @@ $countDoctores = $doctoes->rowCount();
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>Titulo</th>
-                                                    <th>Pacientew</th>
-                                                    <th>Doctor</th>
-                                                    <th>Descripcion</th>
-                                                    <th>Fecha</th>
-                                                    <th>Acciones</th>
+                                                    <th>Asunto</th>
+                                                   
+                                                     <th>Acciones</th>
+                                                   
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -77,12 +75,9 @@ $countDoctores = $doctoes->rowCount();
                                                 foreach ($doctoes as $doc) { ?>
                                                     <tr>
                                                         <td> <?php echo $i++ ?> </td>
-                                                        <td> <?php echo $doc['title'] ?> </td>
-                                                        <td> <?php echo $doc['paciente'] ?> </td>
-                                                        <td> <?php echo $doc['doctor'] ?> </td>
-                                                        <td> <?php echo $doc['descripcion'] ?> </td>
-                                                        <td> <?php echo $doc['fecha'] ?> </td>
-                                                        
+                                                        <td> <?php echo $doc['asunto'] ?> </td>
+                                                       
+                                                      
                                                         <td>
                                                             <button class="btn btn-sm btn-danger" onclick="eliminarDoc(<?php echo $doc['id'] ?>)">Eliminar</button>
                                                         </td>
@@ -116,7 +111,7 @@ $countDoctores = $doctoes->rowCount();
 
     <script>
         const eliminarDoc = (id) => {
-            $.get("db/cita-eliminar.php", {
+            $.get("db/mensaje-eliminar.php", {
                 id
             }, function(data) {
                 Swal.fire(

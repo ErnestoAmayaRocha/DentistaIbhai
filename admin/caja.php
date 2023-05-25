@@ -58,7 +58,7 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
          <main class="content">
             <div class="container-fluid p-0">
 
-               <h1 class="h1 mb-3 fw-bolder">Doctores</h1>
+               <h1 class="h1 mb-3 fw-bolder">Caja</h1>
 
                <div class="row">
 
@@ -66,7 +66,7 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
                      <div class="flex-fill pb-4">
                         <div class="card-header row d-flex pt-4 border border-bottom border-1">
                            <div class="col-md-6">
-                              <h5 class="card-title mb-0">Registro de doctores</h5>
+                              <h5 class="card-title mb-0">Caja</h5>
                            </div>
                         </div>
                         <form class="row p-3 gap-2" action='./db/agregar-caja.php' method="POST">

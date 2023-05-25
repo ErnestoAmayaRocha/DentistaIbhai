@@ -715,7 +715,7 @@ $fk === '' && header('Location: index.php');
                                  foreach ($evolucion as $row) { ?>
                                     <tr>
                                        <td><?php echo $row['fecha']; ?></td>
-                                       <td><?php echo $row['descripcion']; ?></td>
+                                       <td><?php echo $row['evolucion']; ?></td>
                                        <td>
                                           <button class="btn btn-sm btn-danger" id="btn-el-<?php echo $row['id_evolucion']; ?>" onclick="borrarEvolucion(<?php echo $row['id_evolucion']; ?>)">Eliminar</button>
                                        </td>

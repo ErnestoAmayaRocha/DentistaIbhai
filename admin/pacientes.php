@@ -60,6 +60,14 @@ $doctores = $doctores->fetchAll(PDO::FETCH_ASSOC);
 
                   <div class="card">
                      <div class="py-3 flex-fill">
+                         <div class="card-header row d-flex pt-4 ">
+                                    <div class="col-md-6">
+                                        <h5 class="card-title mb-0">Registro de Pacientes</h5>
+                                    </div>
+                                    <div class="col-md-6 row d-flex justify-content-end">
+                                        <a class="btn btn-primary col-md-3" href="agregar-pacientee.php">Agregar</a>
+                                    </div>
+                                </div>
                         <div class="col-sm-12 my-3">
                            <label class="form-label fw-bold" for="odontologo">Odontologo:</label>
                            <select class='form-control' name="odontologo" id="odontologo">
@@ -90,6 +98,7 @@ $doctores = $doctores->fetchAll(PDO::FETCH_ASSOC);
 
                               <?php
                               $doc = isset($_GET['doctor']) ? $_GET['doctor'] : false;
+                              
                               if ($doc === false) {
                                  foreach ($db->query('SELECT * from pacientes') as $row) { ?>
                                     <tr>
@@ -103,13 +112,14 @@ $doctores = $doctores->fetchAll(PDO::FETCH_ASSOC);
                                        <td><?php echo $row['telefono'] ?></td>
                                        <td><a href="./paciente-desc.php?id=<?php echo $row['id'] ?>" class="btn btn-success">
                                              <i class="align-middle" data-feather="eye"></i>
-                                          </a></td>
+                                          </a>
+                                          <button class="btn btn-sm btn-danger" onclick="eliminarDoc(<?php echo $row['id'] ?>)">Eliminar</button></td>
                                     </tr>
                                  <?php
                                  }
                               } else {
 
-                                 $paciente = $db->prepare("SELECT * from pacientes WHERE odontologo = :doctor");
+                                 $paciente = $db->prepare("SELECT * from pacientes WHERE fk_doctor = :doctor");
                                  $paciente->bindParam(':doctor', $doc);
                                  $paciente->execute();
                                  foreach ($paciente as $row) { ?>
@@ -144,7 +154,7 @@ $doctores = $doctores->fetchAll(PDO::FETCH_ASSOC);
       </div>
 
    </div>
-
+  <?php include '../components/swal.php' ?>
    <script src="./assets/js/app.js"></script>
    <script>
       document.getElementById("odontologo").onchange = function() {
@@ -160,6 +170,26 @@ $doctores = $doctores->fetchAll(PDO::FETCH_ASSOC);
          }
       }
    </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script src="./assets/js/app.js"></script>
+
+    <script>
+        const eliminarDoc = (id) => {
+            $.get("db/paciente-eliminar.php", {
+                id
+            }, function(data) {
+                Swal.fire(
+                    '',
+                    '',
+                    data
+                )
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000);
+
+            });
+        }
+    </script>
 </body>
 
 </html>

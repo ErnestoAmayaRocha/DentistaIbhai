@@ -12,7 +12,7 @@ if ($_POST) {
         echo 'error';
     } else {
         try {
-            $saveEv = $db->query("INSERT INTO evolucion (fecha, descripcion, fk_paciente) VALUES ('$fecha', '$evolucion', '$fk') ");
+            $saveEv = $db->query("INSERT INTO evolucion (fecha, evolucion, fk_paciente) VALUES ('$fecha', '$evolucion', '$fk') ");
             echo 'success';
         } catch (\Throwable $th) {
             throw $th;

@@ -20,21 +20,24 @@
                     <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Bitácora digital</span>
                 </a>
             </li> -->
-         <li class="sidebar-item">
-            <a class="sidebar-link" href="Ortodoncia.php">
-               <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Ortodoncia</span>
+             <li class="sidebar-item">
+            <a class="sidebar-link" href="calendario.php">
+               <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Agenda</span>
             </a>
          </li>
-         <li class="sidebar-item">
+          <li class="sidebar-item">
             <a class="sidebar-link" href="doctores.php">
                <i class="align-middle" data-feather="users"></i> <span class="align-middle">Doctores</span>
             </a>
          </li>
-         <li class="sidebar-item">
+          <li class="sidebar-item">
             <a class="sidebar-link" href="pacientes.php">
-               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Pacientes</span>
+               <i class="align-middle" data-feather="users"></i> <span class="align-middle">Pacientes</span>
             </a>
          </li>
+         
+        
+        
 
          <li class="sidebar-header">
             Operaciones
@@ -45,19 +48,30 @@
             </a>
          </li>
 
-         <li class="sidebar-item">
-            <a class="sidebar-link" href="calendario.php">
-               <i class="align-middle" data-feather="calendar"></i> <span class="align-middle">Calendario</span>
-            </a>
-         </li>
+        
          <li class="sidebar-item">
             <a class="sidebar-link" href="odontograma.php">
                <i class="align-middle" data-feather="clipboard"></i> <span class="align-middle">Odontograma</span>
             </a>
          </li>
          <li class="sidebar-item">
+            <a class="sidebar-link" href="ortodoncia.php">
+               <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Ortodoncia</span>
+            </a>
+         </li>
+         <li class="sidebar-item">
+            <a class="sidebar-link" href="Ortodoncia.php">
+               <i class="align-middle" data-feather="activity"></i> <span class="align-middle">Ortodoncia antigua</span>
+            </a>
+         </li>
+         <li class="sidebar-item">
             <a class="sidebar-link" href="examenes-clinicos.php">
                <i class="align-middle" data-feather="file-text"></i> <span class="align-middle">Examenes Clínicos</span>
+            </a>
+         </li>
+         <li class="sidebar-item">
+            <a class="sidebar-link" href="mensajes.php">
+               <i class="align-middle" data-feather="message-square"></i> <span class="align-middle">Mensajes</span>
             </a>
          </li>
          <!-- <li class="sidebar-item">
@@ -136,7 +150,7 @@
             </a>
          </li>
          <li class="sidebar-item">
-            <a class="sidebar-link" href="#">
+            <a class="sidebar-link" href="mensajescaja.php">
                <i class="align-middle" data-feather="inbox"></i> <span class="align-middle">Mensaje</span>
             </a>
          </li>

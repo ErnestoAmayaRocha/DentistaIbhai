@@ -87,9 +87,18 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
                      <div class="tab-content p-3 row" id="nav-tabContent">
                         <!-- Resumen -->
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
-                           <div class="col-sm-6 row mt-3">
-                              <div class="col-sm-12">
-                                 <label class='fw-bolder mb-2' for="doctor">Doctor</label>
+                           <div class="col-12 row mt-3">
+                               
+                               
+                               
+                               
+                               
+                                <div class="card-body">
+                                    <div class="container">
+                                        <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+                                            <div class="row d-flex justify-content-center">
+                                                <div class="form-group col-md-6 my-3">
+                                                    <label class='fw-bolder mb-2' for="doctor">Doctor</label>
                                  <select class='form-control' name="doctor" id="doctor">
                                     <option value="" selected disabled>Selecciona una opción</option>
                                     <?php
@@ -99,76 +108,14 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
                                     }
                                     ?>
                                  </select>
-                              </div>
-                           </div>
-                           <div class="col-sm-12 row mt-3">
-                              <div class="col-sm-6">
-                                 <label class='fw-bolder mb-2' for="fecha_inicio">Fecha de inicio</label>
-                                 <input class='form-control' type="date" name="fecha_inicio" id="fecha_inicio">
-                              </div>
-                              <div class="col-sm-6">
-                                 <label class='fw-bolder mb-2' for="fecha_fin">Fecha final</label>
-                                 <input class='form-control' type="date" name="fecha_fin" id="fecha_fin">
-                              </div>
-                           </div>
-                           <div class="col-sm-12 row mt-3">
-                              <div class="col-sm-6">
-                                 <label class='fw-bolder mb-2' for="tiempo_estimado">Tiempo estimado</label>
-                                 <input class='form-control' type="text" name="tiempo_estimado" id="tiempo_estimado" placeholder="Ingrese tiempo estimado">
-                              </div>
-                              <div class="col-sm-6">
-                                 <label class='fw-bolder mb-2' for="tipo_brackets">Tipo de brackets</label>
-                                 <select class='form-control' name="tipo_brackets" id="tipo_brackets">
-                                    <option value="">Ejemplo</option>
-                                    <option value="">Ejemplo</option>
-                                    <option value="">Ejemplo</option>
-                                 </select>
-                              </div>
-                           </div>
-                           <div class="col-sm-12 row mt-3">
-                              <div class="col-sm-12">
-                                 <label class='fw-bolder mb-2' for="diagnostico">Diagnóstico</label>
-                                 <textarea class='form-control' name="diagnostico" id="diagnostico" cols="30" rows="5" placeholder="Diagnóstico"></textarea>
-                              </div>
-                           </div>
-                           <div class="col-sm-12 row mt-3">
-                              <div class="col-sm-6">
-                                 <label class='fw-bolder mb-2' for="anclaje_sup">Anclaje superior</label>
-                                 <select class='form-control' name="anclaje_sup" id="anclaje_sup">
-                                    <option value="1">Ejemplo</option>
-                                    <option value="1">Ejemplo</option>
-                                    <option value="1">Ejemplo</option>
-                                 </select>
-                              </div>
-                              <div class="col-sm-6">
-                                 <label class='fw-bolder mb-2' for="anclaje_inf">Anclaje inferior</label>
-                                 <select name="anclaje_inf" id="anclaje_inf" class="form-control">
-                                    <option value="1">Ejemplo</option>
-                                    <option value="1">Ejemplo</option>
-                                    <option value="1">Ejemplo</option>
-                                 </select>
-                              </div>
-                           </div>
-                           <div class="col-sm-12 mt-3">
-                              <div class="col-sm 12">
-                                 <label class='fw-bolder mb-2' for="nota">Nota</label>
-                                 <textarea class='form-control' name="nota" id="nota" cols="30" rows="3"></textarea>
-                              </div>
-                           </div>
-
-                           <div class="col-sm-12 mt-3 row justify-content-center my-5">
-                              <div class="col-sm-4 my-2">
-                                 <input type="submit" value="Guardar" class="btn btn-success form-control">
-                              </div>
-                           </div>
-                        </div>
-
-                        <!-- Archivos -->
-                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
-                           <form method="POST" action="./db/ortodoncia-guardar-archivo.php" enctype="multipart/form-data">
-                              <div class="form-group col-md-12 mb-4">
-                                 <label for="paciente" class="form-label fw-bold">Paciente</label>
-                                 <select class='form-control' name="fk" id="fk" required>
+                                                   
+                                                   
+                                                   
+                                                   
+                                                </div>
+                                                <div class="form-group col-md-6 my-3">
+                                                    <label class='fw-bolder mb-2' for="doctor">Paciente</label>
+                                  <select class='form-control' name="fk" id="fk" required>
                                     <option value="" disabled selected>Selecciona una opción</option>
                                     <?php
                                     foreach ($pacientes as $paciente) { ?>
@@ -177,62 +124,62 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
                                     }
                                     ?>
                                  </select>
+                                                </div>
+                                                <div class="form-group col-md-6 my-3">
+                                                    <label class='fw-bolder mb-2' for="fecha_inicio">Fecha de inicio</label>
+                                 <input class='form-control' type="date" name="fecha_inicio" id="fecha_inicio">
+                                                </div>
+                                                <div class="form-group col-md-6 my-3">
+                                                    <label class='fw-bolder mb-2' for="fecha_fin">Fecha final</label>
+                                 <input class='form-control' type="date" name="fecha_fin" id="fecha_fin">
+                                                </div>
+                                                <div class="form-group col-md-6 my-3">
+                                                    <label class='fw-bolder mb-2' for="tiempo_estimado">Tiempo estimado</label>
+                                 <input class='form-control' type="text" name="tiempo_estimado" id="tiempo_estimado" placeholder="Ingrese tiempo estimado">
+                                                </div>
+                                                <div class="form-group col-md-6 my-3">
+                                                     <label class='fw-bolder mb-2' for="tipo_brackets">Tipo de brackets</label>
+                                 <select class='form-control' name="tipo_brackets" id="tipo_brackets">
+                                    <option value="">Ejemplo</option>
+                                    <option value="">Ejemplo</option>
+                                    <option value="">Ejemplo</option>
+                                 </select>
+                                                </div>
+                                                <div class="form-group col-md-12 my-3">
+                                                    <label class='fw-bolder mb-2' for="diagnostico">Diagnóstico</label>
+                                 <textarea class='form-control' name="diagnostico" id="diagnostico" cols="30" rows="5" placeholder="Diagnóstico"></textarea>
+                                                </div>
+                                                
+                                                 <div class="form-group col-md-6 my-3">
+                                                   <label class='fw-bolder mb-2' for="anclaje_sup">Anclaje superior</label>
+                                 <select class='form-control' name="anclaje_sup" id="anclaje_sup">
+                                    <option value="1">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
+                                 </select>
+                                                </div>
+                                                 <div class="form-group col-md-6 my-3">
+                                                   <label class='fw-bolder mb-2' for="anclaje_inf">Anclaje inferior</label>
+                                 <select name="anclaje_inf" id="anclaje_inf" class="form-control">
+                                    <option value="1">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
+                                    <option value="1">Ejemplo</option>
+                                 </select>
+                                                </div>
+                                                
+                                                
+                                                <div class="col-12">
+                                 <label class='fw-bolder mb-2' for="nota">Nota</label>
+                                 <textarea class='form-control' name="nota" id="nota" cols="30" rows="3"></textarea>
                               </div>
-                              <div class="form-group my-3">
-                                 <label class='fw-bolder mb-2' for="archivo">Nombre del archivo</label>
-                                 <input type="text" name="nombre" id="nombre" placeholder="Nombre del archivo" class="form-control" required>
-                              </div>
-                              <div class="form-group">
-                                 <label class='fw-bolder mb-2' for="archivo">Archivo</label>
-                                 <input type="file" name="archivo" id="archivo" class="form-control" required>
-                              </div>
-                              <div class="row justify-content-center">
-                                 <div class="col-sm-4">
-                                    <input type="submit" value="Guardar" class="btn btn-success form-control mt-4">
-                                 </div>
-                              </div>
-                           </form>
-                        </div>
-
-                        <!-- Plan de trabajo -->
-                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">...</div>
-
-                        <!-- Fotografías -->
-                        <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">
-                           <div class='col-sm-12 d-flex justify-content-end align-items-center mb-4'>
-                              <a href="agregar-album.php" class="btn btn-primary">Crear Álbum</a>
-                           </div>
-
-                           <?php foreach ($albums as $album) { ?>
-                              <div class="d-flex my-3">
-                                 <div class="col-sm-2 d-flex flex-column justify-content-center align-items-center border border-bottom-1">
-                                    <h3><?php echo $album['nombre'] ?></h3>
-                                    <small><?php echo strftime("%d %b %Y", strtotime($album['created_at'])) ?></small>
-                                    <a href="agregar-imagen-album.php?id=<?php echo $album['id_album'] ?>" class="btn btn-sm btn-primary mt-3">Editar álbum</a>
-                                 </div>
-                                 <div class="fotografias col-sm-10">
-
-                                    <?php
-                                    $images = $db->prepare("SELECT * FROM album_imagen WHERE fk_album = :fk_album");
-                                    $images->bindParam(':fk_album', $album['id_album']);
-                                    $images->execute();
-                                    $images = $images->fetchAll(PDO::FETCH_ASSOC);
-
-                                    foreach ($images as $img) { ?>
-                                       <!-- <div class="col"> -->
-                                       <img src="./<?php echo $img['path'] ?>" width='300' height="300" alt="img">
-                                       <!-- </div> -->
-                                    <?php } ?>
-                                 </div>
-                              </div>
-
-                           <?php
-                           }
-
-                           ?>
-
-
-                        </div>
+                                                
+                                                <div class="col-md-6 pt-3">
+                                                    <button class="btn btn-primary form-control my-3">Guardar</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                      </div>
                   </div>
 
@@ -246,6 +193,70 @@ $pacientes = $pacientes->fetchAll(PDO::FETCH_ASSOC);
    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
    <script src="./assets/js/app.js"></script>
    <?php include '../components/swal.php' ?>
+
+
+
+
+
+ <?php
+
+    include('../db/config.php');
+
+    if ($_POST) {
+
+        $nombre = $_POST['nombre'];
+        $direccion = $_POST['direccion'];
+        $edad =  $_POST['edad'];
+        $correo = $_POST['correo'];
+        $telefono = $_POST['telefono'];
+        $especialidad = $_POST['especialidad'];
+        $cedula = $_POST['cedula'];
+
+        if ($nombre == '' || $direccion = '' || $correo = '' || $telefono == ''  || $especialidad == '' || $cedula == '') { ?>
+            <script>
+                Swal.fire(
+                    'Error',
+                    'Completa todos los campos',
+                    'warning'
+                )
+            </script>
+            <?php
+        } else {
+
+            try {
+
+                $doc = $db->prepare('INSERT INTO doctores (nombre, edad, direccion, correo, telefono, especialidad, cedula_profesional) VALUES (:nombre, :edad, :direccion, :correo, :telefono, :especialidad, :cedula)');
+                $doc->bindParam(':nombre', $nombre);
+                $doc->bindParam(':direccion', $direccion);
+                $doc->bindParam(':edad', $edad);
+                $doc->bindParam(':correo', $correo);
+                $doc->bindParam(':telefono', $telefono);
+                $doc->bindParam(':especialidad', $especialidad);
+                $doc->bindParam(':cedula', $cedula);
+                $doc->execute();
+            } catch (\Throwable $th) {
+                echo $th;
+            ?>
+                <script>
+                    window.location.href = "doctores.php?status=error";
+                </script>
+            <?php
+            }
+            ?>
+            <script>
+                window.location.href = "doctores.php?status=success"
+            </script>
+    <?php
+        }
+    }
+    ?>
+    <?php include '../components/swal.php' 
+    ?>
+
+
+
+
+
 
    <script>
       const sendData = () => {
